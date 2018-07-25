@@ -6,7 +6,7 @@ function Letter (char){
     this.correctlyGuessed = false;
     this.returnChar = function(){
         if (this.correctlyGuessed) return this.char;
-        return '_';
+        return '_ ';
     }
     this.checkChar = function(letter){
         if (letter === this.char) this.correctlyGuessed = true; 

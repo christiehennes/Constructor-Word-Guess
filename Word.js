@@ -1,14 +1,17 @@
-let letter = require('./Letter.js');
+let Letter = require('./Letter.js');
 
 
 function Word(word){
 
-    this.lettersArray = [];
+    this.originalWord = word;
+
 
     //Function to break apart each letter and create a new letter object
-    this.setWord = function(word){
+    this.setWord = function(){
+
+        console.log("inside set word");
         
-        word.split('').forEach(function(char){
+        this.originalWord.split('').forEach(function(char){
 
             let letter = new Letter(char); 
             lettersArray.push(letter);
@@ -16,11 +19,24 @@ function Word(word){
         });
     }
 
-    this.getWord = function(){
-        return this.lettersArray.join('');
+    this.displayCurrentGuesses = function(){
+
+        let curWord = '';
+        lettersArray.forEach(function(char){
+            curWord += char.returnChar();
+        })
+        return curWord;
+    }
+
+    this.checkGuess = function(char){
+        lettersArray.forEach(function(currentChar){
+            if(currentChar.char === '-') currentChar.checkChar(currentChar);
+        })
     }
 
 }
+
+let lettersArray = [];
 
 module.exports = Word;
 
