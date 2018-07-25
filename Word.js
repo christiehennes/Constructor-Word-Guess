@@ -16,6 +16,10 @@ function Word(word){
         });
     }
 
+    this.getWord = function(){
+        return this.lettersArray.join('');
+    }
+
 }
 
 module.exports = Word;
