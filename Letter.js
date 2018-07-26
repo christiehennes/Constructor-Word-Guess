@@ -9,7 +9,11 @@ function Letter (char){
         return '_ ';
     }
     this.checkChar = function(letter){
-        if (letter === this.char) this.correctlyGuessed = true; 
+        if (letter === this.char) {
+            this.correctlyGuessed = true; 
+            return true;
+        }
+        return false;
     }
 
 }

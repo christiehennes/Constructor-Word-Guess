@@ -24,14 +24,24 @@ function Word(word){
         let curWord = '';
         lettersArray.forEach(function(char){
             curWord += char.returnChar();
-        })
+        });
         return curWord;
     }
 
     this.checkGuess = function(char){
+
+        let charMatch = false;
         lettersArray.forEach(function(currentChar){
-            if(currentChar.char === '-') currentChar.checkChar(currentChar);
-        })
+
+            // console.log("word.checkguess object from lettersArray: " + currentChar.char);
+
+            if(currentChar.char === char){
+                charMatch = currentChar.checkChar(char);
+                console.log("inside the word checkguess function when a letter matches")
+                console.log("Does this match? " + charMatch);
+            };
+        });
+        return charMatch;
     }
 
 }
